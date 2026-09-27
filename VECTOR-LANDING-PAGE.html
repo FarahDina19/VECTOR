@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VECTOR Interactive Learning Platform - Learn vectors through interactive visualizations and step-by-step problem solving">
+    <title>VECTOR - Learning Platform | IKM Lumut</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-brown: #5a4a42;
+            --primary-gold: #c4a574;
+            --accent-cream: #f5f1ed;
+            --accent-dark-brown: #3d2817;
+            --accent-light-tan: #e8dcc8;
+            --text-dark: #2c2420;
+            --text-muted: #6b6159;
+            --white: #ffffff;
+            --success-gold: #d4af37;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: var(--accent-cream);
+            color: var(--text-dark);
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        .header {
+            background: var(--white);
+            padding: 40px 60px;
+            margin-bottom: 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            border-bottom: 1px solid var(--accent-light-tan);
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-brown);
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-gold);
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo-text h1 {
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--primary-brown);
+            text-transform: uppercase;
+        }
+
+        .logo-text p {
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .institution-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: var(--accent-light-tan);
+            border: 1px solid var(--primary-gold);
+            border-radius: 0;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--primary-brown);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .institution-badge::before {
+            content: "▪";
+            font-size: 14px;
+            color: var(--primary-gold);
+        }
+
+        /* ===== TAB NAVIGATION ===== */
+        .tab-container {
+            background: var(--white);
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: none;
+            margin-bottom: 0;
+        }
+
+        .tab-navigation {
+            display: flex;
+            flex-wrap: wrap;
+            background: var(--white);
+            border-bottom: 2px solid var(--accent-light-tan);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding: 0 60px;
+        }
+
+        .tab-button {
+            flex: 0 1 auto;
+            min-width: 140px;
+            padding: 24px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+            position: relative;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tab-button:hover {
+            background: transparent;
+            color: var(--primary-brown);
+        }
+
+        .tab-button.active {
+            background: transparent;
+            color: var(--primary-brown);
+            border-bottom-color: var(--primary-gold);
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: scaleX(0);
+                transform-origin: left;
+            }
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        .tab-icon {
+            font-size: 18px;
+        }
+
+        /* ===== CONTENT SECTIONS ===== */
+        .tab-content {
+            padding: 50px 40px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-header {
+            margin-bottom: 40px;
+        }
+
+        .content-header h2 {
+            font-size: 42px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: var(--primary-brown);
+            text-transform: uppercase;
+        }
+
+        .content-header p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== CARD GRID ===== */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--accent-light-tan);
+            border-radius: 0;
+            padding: 40px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(196, 165, 116, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--primary-brown);
+            letter-spacing: 0.5px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 11px;
+            color: var(--primary-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-meta span {
+            background: var(--accent-light-tan);
+            padding: 6px 12px;
+            border-radius: 0;
+            border-left: 2px solid var(--primary-gold);
+        }
+
+        /* ===== LEARNING PATH ===== */
+        .learning-path {
+            background: var(--accent-light-tan);
+            border-left: 3px solid var(--primary-gold);
+            padding: 40px;
+            border-radius: 0;
+            margin-bottom: 50px;
+        }
+
+        .learning-path h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary-brown);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .learning-path ol {
+            margin-left: 25px;
+        }
+
+        .learning-path li {
+            margin-bottom: 14px;
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        /* ===== CTA BUTTON ===== */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 40px;
+            background: var(--primary-brown);
+            color: var(--primary-gold);
+            border: 2px solid var(--primary-brown);
+            border-radius: 0;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--primary-brown);
+            border-color: var(--primary-brown);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .cta-button::after {
+            content: '→';
+            font-size: 16px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 30px 20px;
+            }
+
+            .logo-section {
+                width: 100%;
+            }
+
+            .tab-navigation {
+                padding: 0 20px;
+            }
+
+            .tab-button {
+                flex: 1;
+                min-width: 110px;
+                padding: 18px 10px;
+                font-size: 11px;
+            }
+
+            .tab-icon {
+                font-size: 16px;
+            }
+
+            .tab-content {
+                padding: 40px 20px;
+            }
+
+            .content-header h2 {
+                font-size: 28px;
+                letter-spacing: 1px;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .cta-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ===== FEATURE SHOWCASE ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .feature-box {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 0;
+            border-left: 3px solid var(--primary-gold);
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-box-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+            opacity: 0.85;
+        }
+
+        .feature-box-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-brown);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-box-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== DIFFICULTY BADGES ===== */
+        .difficulty-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 0;
+            font-size: 10px;
+            font-weight: 600;
+            margin-right: 10px;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-left: 2px solid;
+        }
+
+        .difficulty-easy {
+            background: rgba(196, 165, 116, 0.08);
+            color: #6b5d42;
+            border-left-color: #8b7355;
+        }
+
+        .difficulty-medium {
+            background: rgba(196, 165, 116, 0.12);
+            color: #5a4a42;
+            border-left-color: var(--primary-gold);
+        }
+
+        .difficulty-hard {
+            background: rgba(61, 40, 23, 0.08);
+            color: #3d2817;
+            border-left-color: var(--primary-brown);
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <div class="header">
+        <div class="logo-section">
+            <div class="logo-icon">→</div>
+            <div class="logo-text">
+                <h1>VECTOR</h1>
+                <p>Interactive Learning Platform</p>
+            </div>
+        </div>
+        <div class="institution-badge">
+            IKM Lumut • DUM10092
+        </div>
+    </div>
+
+    <!-- ===== TAB NAVIGATION ===== -->
+    <div class="tab-container">
+        <div class="tab-navigation">
+            <button class="tab-button active" data-tab="intro">
+                <span class="tab-icon">🏠</span>
+                <span>Intro</span>
+            </button>
+            <button class="tab-button" data-tab="concept1">
+                <span class="tab-icon">📘</span>
+                <span>Scalar & Vector</span>
+            </button>
+            <button class="tab-button" data-tab="concept2">
+                <span class="tab-icon">📗</span>
+                <span>Component Form</span>
+            </button>
+            <button class="tab-button" data-tab="concept3">
+                <span class="tab-icon">📕</span>
+                <span>Addition</span>
+            </button>
+            <button class="tab-button" data-tab="practice">
+                <span class="tab-icon">🎮</span>
+                <span>Practice</span>
+            </button>
+            <button class="tab-button" data-tab="resources">
+                <span class="tab-icon">💡</span>
+                <span>Resources</span>
+            </button>
+        </div>
+
+        <!-- ===== TAB 1: INTRO ===== -->
+        <div class="tab-content active" id="intro">
+            <div class="content-header">
+                <h2>Kenapa Pelajari Vektor?</h2>
+                <p>Temui bagaimana vektor digunakan dalam dunia nyata melalui cerita yang menarik</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">✈️</div>
+                    <div class="card-title">Pesawat Terbang</div>
+                    <div class="card-description">
+                        Pilot perlu tahu arah sebenar pesawat ketika ada angin. Vektor membantu mengira laluan yang tepat.
+                    </div>
+                    <div class="card-meta">
+                        <span>Kecepatan</span>
+                        <span>Arah</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🏗️</div>
+                    <div class="card-title">Pembinaan Bangunan</div>
+                    <div class="card-description">
+                        Dua kabel menarik hook dengan daya berbeza. Jurutera harus kira daya paduan untuk keselamatan struktur.
+                    </div>
+                    <div class="card-meta">
+                        <span>Daya</span>
+                        <span>Keseimbangan</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🎮</div>
+                    <div class="card-title">Permainan Video</div>
+                    <div class="card-description">
+                        Pergerakan karakter, peluru, dan objek semua menggunakan vektor untuk arah dan kecepatan.
+                    </div>
+                    <div class="card-meta">
+                        <span>Grafik</span>
+                        <span>Animasi</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="learning-path">
+                <h3>🎯 Laluan Pembelajaran Anda:</h3>
+                <ol>
+                    <li><strong>Mulai dengan asas:</strong> Pelajari perbezaan antara skalar dan vektor</li>
+                    <li><strong>Visualisasi:</strong> Lihat vektor dalam satah Cartes dengan gambar interaktif</li>
+                    <li><strong>Latihan:</strong> Praktik mengubah, menambah, dan tolak vektor</li>
+                    <li><strong>Soal selesai:</strong> Gunakan pengetahuan untuk masalah dunia nyata</li>
+                    <li><strong>Kuasai:</strong> Selesaikan latihan mencabar dengan penuh yakin</li>
+                </ol>
+            </div>
+
+            <button class="cta-button" onclick="switchTab('concept1')">Mula Belajar</button>
+        </div>
+
+        <!-- ===== TAB 2: SCALAR VS VECTOR ===== -->
+        <div class="tab-content" id="concept1">
+            <div class="content-header">
+                <h2>Skalar vs Vektor (5.1)</h2>
+                <p>Ketahui perbezaan asas yang memisahkan skalar dari vektor</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🔢</div>
+                    <div class="card-title">Skalar (Scalar)</div>
+                    <div class="card-description">
+                        Kuantiti yang hanya mempunyai <strong>magnitud (saiz)</strong> sahaja. Tiada arah.
+                    </div>
+                    <div class="card-meta">
+                        <span>Contoh: 25°C</span>
+                        <span>50 km/j</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">➡️</div>
+                    <div class="card-title">Vektor (Vector)</div>
+                    <div class="card-description">
+                        Kuantiti yang mempunyai <strong>magnitud DAN arah</strong>. Kedua-dua penting.
+                    </div>
+                    <div class="card-meta">
+                        <span>Contoh: 50 km/j Utara</span>
+                        <span>500 N ke bawah</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-box-icon">📊</div>
+                    <div class="feature-box-title">Magnitud</div>
+                    <div class="feature-box-text">Skalar: Ya saja | Vektor: Ya + Arah</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-box-icon">🧭</div>
+                    <div class="feature-box-title">Arah</div>
+                    <div class="feature-box-text">Skalar: Tidak | Vektor: Penting</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-box-icon">➕</div>
+                    <div class="feature-box-title">Penambahan</div>
+                    <div class="feature-box-text">Skalar: 3+2=5 | Vektor: Mesti guna gambar</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-box-icon">🔤</div>
+                    <div class="feature-box-title">Notasi</div>
+                    <div class="feature-box-text">Skalar: 5 m/s | Vektor: 5i+3j m/s</div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 30px;">
+                <div class="card-icon">🎯</div>
+                <div class="card-title">Jenis-jenis Vektor</div>
+                <div class="card-description">
+                    <strong>Vektor Null:</strong> Tiada panjang, tiada arah (0)<br>
+                    <strong>Vektor Unit:</strong> Panjang = 1 unit (i, j)<br>
+                    <strong>Vektor Selari:</strong> Arah sama, panjang mungkin berbeza<br>
+                    <strong>Vektor Sama:</strong> Arah sama DAN panjang sama<br>
+                    <strong>Vektor Negatif:</strong> Arah bertentangan
+                </div>
+                <div class="difficulty-badge difficulty-easy">Mudah - Asas</div>
+            </div>
+
+            <button class="cta-button" onclick="switchTab('concept2')">Seterusnya: Bentuk Komponen</button>
+        </div>
+
+        <!-- ===== TAB 3: COMPONENT FORM ===== -->
+        <div class="tab-content" id="concept2">
+            <div class="content-header">
+                <h2>Vektor dalam Satah Cartes (5.2)</h2>
+                <p>Pelajari cara mengungkapkan vektor dalam bentuk komponen i, j</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">📐</div>
+                    <div class="card-title">Bentuk Komponen (i, j)</div>
+                    <div class="card-description">
+                        Vektor = xi + yj<br>
+                        <strong>i:</strong> Unit vektor arah x (Timur)<br>
+                        <strong>j:</strong> Unit vektor arah y (Utara)
+                    </div>
+                    <div class="card-meta">
+                        <span>Contoh: 3i + 4j</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <div class="card-title">Bentuk Kolom</div>
+                    <div class="card-description">
+                        Vektor boleh ditulis dalam bentuk kolom:<br>
+                        [3]<br>
+                        [4]<br>
+                        Bererti 3 unit Timur, 4 unit Utara
+                    </div>
+                    <div class="card-meta">
+                        <span>Juga dipanggil: Column vector</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📏</div>
+                    <div class="card-title">Magnitud Vektor</div>
+                    <div class="card-description">
+                        <strong>Formula:</strong> |v| = √(x² + y²)<br>
+                        <strong>Contoh:</strong> Jika v = 3i + 4j,<br>
+                        |v| = √(9 + 16) = √25 = 5
+                    </div>
+                    <div class="card-meta">
+                        <span>Panjang vektor</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="learning-path">
+                <h3>📍 Koordinat ↔️ Bentuk Komponen:</h3>
+                <ol>
+                    <li><strong>Titik (2, 3):</strong> Vektor = 2i + 3j</li>
+                    <li><strong>Titik (5, -1):</strong> Vektor = 5i - 1j</li>
+                    <li><strong>Titik (-3, 4):</strong> Vektor = -3i + 4j</li>
+                    <li><strong>Ingat:</strong> Negatif bermakna arah sebaliknya</li>
+                </ol>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-box-icon">🔵</div>
+                    <div class="feature-box-title">Komponen i</div>
+                    <div class="feature-box-text">Selalu BIRU (Timur/Barat)</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-box-icon">🔴</div>
+                    <div class="feature-box-title">Komponen j</div>
+                    <div class="feature-box-text">Selalu MERAH (Utara/Selatan)</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-box-icon">📐</div>
+                    <div class="feature-box-title">Unit Vektor</div>
+                    <div class="feature-box-text">i = (1, 0), j = (0, 1)</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-box-icon">➡️</div>
+                    <div class="feature-box-title">Arah</div>
+                    <div class="feature-box-text">θ = arctan(y/x)</div>
+                </div>
+            </div>
+
+            <button class="cta-button" onclick="switchTab('concept3')">Seterusnya: Penambahan Vektor</button>
+        </div>
+
+        <!-- ===== TAB 4: ADDITION ===== -->
+        <div class="tab-content" id="concept3">
+            <div class="content-header">
+                <h2>Penambahan & Pengurangan Vektor (5.3)</h2>
+                <p>Dua kaedah untuk menambah vektor: Hukum Segitiga dan Hukum Segiempat Selari</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">△</div>
+                    <div class="card-title">Hukum Segitiga</div>
+                    <div class="card-description">
+                        1. Lukis vektor A dari O<br>
+                        2. Dari hujung A, lukis vektor B<br>
+                        3. Vektor paduan: O ke hujung B<br>
+                        <strong>Hasil:</strong> A + B
+                    </div>
+                    <div class="difficulty-badge difficulty-medium">Sederhana</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">▭</div>
+                    <div class="card-title">Hukum Segiempat Selari</div>
+                    <div class="card-description">
+                        1. Lukis A dan B dari O<br>
+                        2. Lengkapkan segiempat selari<br>
+                        3. Pepenjuru = vektor paduan<br>
+                        <strong>Hasil:</strong> Sama dengan hukum segitiga
+                    </div>
+                    <div class="difficulty-badge difficulty-medium">Sederhana</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">➕</div>
+                    <div class="card-title">Penambahan Algebra</div>
+                    <div class="card-description">
+                        <strong>Formula:</strong><br>
+                        (a+c)i + (b+d)j<br><br>
+                        <strong>Contoh:</strong><br>
+                        (3i+4j) + (2i-1j) = 5i+3j
+                    </div>
+                    <div class="difficulty-badge difficulty-easy">Mudah</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">➖</div>
+                    <div class="card-title">Pengurangan</div>
+                    <div class="card-description">
+                        <strong>Formula:</strong><br>
+                        (a-c)i + (b-d)j<br><br>
+                        <strong>Ingat:</strong> A - B = A + (-B)
+                    </div>
+                    <div class="difficulty-badge difficulty-medium">Sederhana</div>
+                </div>
+            </div>
+
+            <div class="learning-path">
+                <h3>📝 Langkah-langkah Menambah Vektor:</h3>
+                <ol>
+                    <li><strong>Langkah 1:</strong> Tulis vektor dalam bentuk xi + yj</li>
+                    <li><strong>Langkah 2:</strong> Tambah komponen i dengan komponen i</li>
+                    <li><strong>Langkah 3:</strong> Tambah komponen j dengan komponen j</li>
+                    <li><strong>Langkah 4:</strong> Tulis jawapan sebagai vektor baru</li>
+                    <li><strong>Langkah 5:</strong> Lukis gambar untuk sahkan jawapan</li>
+                </ol>
+            </div>
+
+            <div class="card" style="margin-top: 30px;">
+                <div class="card-icon">🔑</div>
+                <div class="card-title">Sifat-sifat Penambahan Vektor</div>
+                <div class="card-description">
+                    <strong>Komutatif:</strong> A + B = B + A<br>
+                    <strong>Asosiatif:</strong> (A + B) + C = A + (B + C)<br>
+                    <strong>Identiti:</strong> A + 0 = A<br>
+                    <strong>Songsang:</strong> A + (-A) = 0
+                </div>
+                <div class="difficulty-badge difficulty-hard">Mencabar</div>
+            </div>
+
+            <button class="cta-button" onclick="switchTab('practice')">Seterusnya: Latihan Interaktif</button>
+        </div>
+
+        <!-- ===== TAB 5: PRACTICE ===== -->
+        <div class="tab-content" id="practice">
+            <div class="content-header">
+                <h2>Latihan Interaktif 🎮</h2>
+                <p>Praktikal soalan dengan maklum balas serta-merta</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">📝</div>
+                    <div class="card-title">Ungkapkan Vektor</div>
+                    <div class="card-description">
+                        Diberi koordinat, tulis vektor dalam bentuk xi + yj. Sahkan jawapan anda dengan gambar interaktif.
+                    </div>
+                    <div class="card-meta">
+                        <span>10 soalan</span>
+                        <span>Semua tahap</span>
+                    </div>
+                    <button class="cta-button" style="width: 100%; margin-top: 15px; justify-content: center;">Mulai →</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">➕</div>
+                    <div class="card-title">Tambah Vektor</div>
+                    <div class="card-description">
+                        Selesaikan penambahan vektor langkah demi langkah. Dapatkan maklum balas untuk setiap komponen.
+                    </div>
+                    <div class="card-meta">
+                        <span>15 soalan</span>
+                        <span>Semua tahap</span>
+                    </div>
+                    <button class="cta-button" style="width: 100%; margin-top: 15px; justify-content: center;">Mulai →</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🔄</div>
+                    <div class="card-title">Periksa Kesamaan</div>
+                    <div class="card-description">
+                        Tentukan sama ada dua vektor sama atau tidak. Bandingkan komponen dan tentukan hubungan mereka.
+                    </div>
+                    <div class="card-meta">
+                        <span>12 soalan</span>
+                        <span>Semua tahap</span>
+                    </div>
+                    <button class="cta-button" style="width: 100%; margin-top: 15px; justify-content: center;">Mulai →</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🔢</div>
+                    <div class="card-title">Pendaraban Skalar</div>
+                    <div class="card-description">
+                        Kalikan vektor dengan skalar. Lihat bagaimana magnitud dan arah berubah.
+                    </div>
+                    <div class="card-meta">
+                        <span>10 soalan</span>
+                        <span>Semua tahap</span>
+                    </div>
+                    <button class="cta-button" style="width: 100%; margin-top: 15px; justify-content: center;">Mulai →</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🌍</div>
+                    <div class="card-title">Masalah Dunia Nyata</div>
+                    <div class="card-description">
+                        Gunakan vektor untuk menyelesaikan masalah tentang pesawat, bangunan, dan enjin.
+                    </div>
+                    <div class="card-meta">
+                        <span>8 soalan</span>
+                        <span>Mencabar</span>
+                    </div>
+                    <button class="cta-button" style="width: 100%; margin-top: 15px; justify-content: center;">Mulai →</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🏆</div>
+                    <div class="card-title">Ujian Akhir</div>
+                    <div class="card-description">
+                        Soalan campuran dari semua topik. Capai 80% untuk lulus dan dapatkan sijil.
+                    </div>
+                    <div class="card-meta">
+                        <span>20 soalan</span>
+                        <span>Semua tahap</span>
+                    </div>
+                    <button class="cta-button" style="width: 100%; margin-top: 15px; justify-content: center;">Mulai →</button>
+                </div>
+            </div>
+
+            <div class="features-grid" style="margin-top: 40px;">
+                <div class="feature-box">
+                    <div class="feature-box-icon">⚡</div>
+                    <div class="feature-box-title">Maklum Balas Serta-merta</div>
+                    <div class="feature-box-text">Tahu benar atau salah dengan segera</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-box-icon">💡</div>
+                    <div class="feature-box-title">Petua Progresif</div>
+                    <div class="feature-box-text">4 tahap petua jika anda tersesat</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-box-icon">📊</div>
+                    <div class="feature-box-title">Penyelesaian Lengkap</div>
+                    <div class="feature-box-text">Lihat setiap langkah dalam jalan kerja</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-box-icon">🎮</div>
+                    <div class="feature-box-title">Gamifikasi</div>
+                    <div class="feature-box-text">Dapatkan XP, lencana, dan naik tahap</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== TAB 6: RESOURCES ===== -->
+        <div class="tab-content" id="resources">
+            <div class="content-header">
+                <h2>Sumber dan Petua 💡</h2>
+                <p>Rujukan cepat, kesilapan biasa, dan formula penting</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⚠️</div>
+                <div class="card-title">Kesilapan Biasa</div>
+                <div class="card-description">
+                    <strong>❌ Salah:</strong> "3i + 4j = 7" (mencampurkan komponen)<br>
+                    <strong>✓ Betul:</strong> Komponen i dan j harus ditambah secara berasingan<br><br>
+                    
+                    <strong>❌ Salah:</strong> "Untuk tambah vektor, cukup tambah magnitud"<br>
+                    <strong>✓ Betul:</strong> Mesti guna hukum segitiga atau segiempat selari<br><br>
+                    
+                    <strong>❌ Salah:</strong> "-3i bermakna tiada komponen i"<br>
+                    <strong>✓ Betul:</strong> Negatif bermakna arah sebaliknya (3 unit ke Barat)
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 25px;">
+                <div class="card-icon">📐</div>
+                <div class="card-title">Formula Penting</div>
+                <div class="card-description">
+                    <strong>Bentuk Komponen:</strong> v = xi + yj<br>
+                    <strong>Magnitud:</strong> |v| = √(x² + y²)<br>
+                    <strong>Unit Vektor:</strong> u = v / |v|<br>
+                    <strong>Penambahan:</strong> (a+c)i + (b+d)j<br>
+                    <strong>Pengurangan:</strong> (a-c)i + (b-d)j<br>
+                    <strong>Pendaraban Skalar:</strong> kv = (kx)i + (ky)j<br>
+                    <strong>Vektor Selari:</strong> A || B jika A = kB<br>
+                    <strong>Vektor Sama:</strong> A = B jika i dan j komponen sama
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 25px;">
+                <div class="card-icon">📚</div>
+                <div class="card-title">Rujukan Cepat</div>
+                <div class="card-description">
+                    <strong>Warna Kod:</strong><br>
+                    🔵 Biru = Komponen i (arah x)<br>
+                    🔴 Merah = Komponen j (arah y)<br>
+                    🟢 Hijau = Vektor paduan<br><br>
+                    
+                    <strong>Nota Ringkas:</strong><br>
+                    • Skalar: Magnitud sahaja (25°C, 50 km/j)<br>
+                    • Vektor: Magnitud + Arah (50 km/j Utara)<br>
+                    • Komponen: Bahagi kepada x dan y<br>
+                    • Penambahan: Tambah i dengan i, j dengan j
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 25px;">
+                <div class="card-icon">🔗</div>
+                <div class="card-title">Pautan Berguna</div>
+                <div class="card-description">
+                    📖 <strong>Syllabus DUM10092:</strong> Lihat rancangan pembelajaran lengkap<br>
+                    📊 <strong>Kalkulator Vektor:</strong> Sahkan jawapan anda<br>
+                    🎥 <strong>Video Pembelajaran:</strong> Penjelasan visual langkah demi langkah<br>
+                    👨‍🏫 <strong>Forum Bantuan:</strong> Tanya soalan kepada guru dan rakan sekelas<br>
+                    📝 <strong>Nota Ujian:</strong> Mula sedia untuk peperiksaan
+                </div>
+            </div>
+
+            <div class="features-grid" style="margin-top: 40px;">
+                <div class="feature-box">
+                    <div class="feature-box-icon">⏱️</div>
+                    <div class="feature-box-title">Jangka Masa</div>
+                    <div class="feature-box-text">6-8 jam belajar penuh</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-box-icon">📈</div>
+                    <div class="feature-box-title">Kesukaran</div>
+                    <div class="feature-box-text">Mudah → Mencabar</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-box-icon">🎯</div>
+                    <div class="feature-box-title">Matlamat</div>
+                    <div class="feature-box-text">Kuasai semua topik</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-box-icon">✅</div>
+                    <div class="feature-box-title">Penilaian</div>
+                    <div class="feature-box-text">Sijil apabila selesai</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <div style="text-align: center; margin-top: 80px; padding: 50px 40px; background: var(--primary-brown); color: var(--accent-cream); font-size: 13px; border-top: 1px solid rgba(196, 165, 116, 0.2);">
+        <p style="letter-spacing: 0.5px; margin-bottom: 8px;">PLATFORM PEMBELAJARAN INTERAKTIF VECTOR</p>
+        <p style="font-size: 12px; color: var(--primary-gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;">INSTITUT KEMAHIRAN MARA LUMUT • PERAK</p>
+        <p style="margin-top: 15px; font-size: 12px; opacity: 0.85; line-height: 1.6;">Dirancang untuk pelajar DUM10092 dengan fokus kepada pembelajaran interaktif yang berkesan dan menyeronokkan. © 2026</p>
+    </div>
+
+    <script>
+        // Tab Switching Function
+        function switchTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected tab content
+            const selectedContent = document.getElementById(tabName);
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+            }
+
+            // Activate corresponding button
+            buttons.forEach(button => {
+                if (button.getAttribute('data-tab') === tabName) {
+                    button.classList.add('active');
+                }
+            });
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Add event listeners to tab buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+                    switchTab(tabName);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
