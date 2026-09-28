@@ -484,6 +484,239 @@
             color: #3d2817;
             border-left-color: var(--primary-brown);
         }
+
+        /* ===== INTERACTIVE EXERCISE STYLES ===== */
+        .exercise-container {
+            background: var(--white);
+            border: 1px solid var(--accent-light-tan);
+            padding: 30px;
+            border-radius: 4px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .exercise-header {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent-light-tan);
+        }
+
+        .exercise-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-brown);
+            margin-bottom: 8px;
+        }
+
+        .exercise-question {
+            font-size: 16px;
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            background: rgba(196, 165, 116, 0.05);
+            padding: 15px;
+            border-left: 3px solid var(--primary-gold);
+        }
+
+        .input-group {
+            margin: 15px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .input-field {
+            padding: 12px 15px;
+            border: 2px solid var(--accent-light-tan);
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+            transition: all 0.3s ease;
+            background: var(--white);
+            color: var(--text-dark);
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 8px rgba(196, 165, 116, 0.2);
+        }
+
+        .input-field.correct {
+            border-color: #4caf50;
+            background: rgba(76, 175, 80, 0.05);
+        }
+
+        .input-field.incorrect {
+            border-color: #e74c3c;
+            background: rgba(231, 76, 60, 0.05);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: var(--primary-brown);
+            color: var(--primary-gold);
+            border: 2px solid var(--primary-brown);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--primary-brown);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-brown);
+            border: 2px solid var(--primary-gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-light-tan);
+        }
+
+        .feedback-message {
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-size: 14px;
+            font-weight: 500;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+
+        .feedback-message.show {
+            display: block;
+        }
+
+        .feedback-correct {
+            background: rgba(76, 175, 80, 0.1);
+            color: #2e7d32;
+            border-left: 4px solid #4caf50;
+        }
+
+        .feedback-incorrect {
+            background: rgba(231, 76, 60, 0.1);
+            color: #c62828;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .solution-block {
+            background: var(--accent-light-tan);
+            border-left: 4px solid var(--primary-gold);
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 4px;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+
+        .solution-block.show {
+            display: block;
+        }
+
+        .solution-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-brown);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .solution-step {
+            margin: 12px 0;
+            padding: 12px;
+            background: var(--white);
+            border-left: 2px solid var(--primary-gold);
+            font-size: 13px;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .solution-step strong {
+            color: var(--primary-brown);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .score-board {
+            background: var(--primary-brown);
+            color: var(--primary-gold);
+            padding: 20px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .score-item {
+            flex: 1;
+        }
+
+        .score-number {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .score-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .canvas-container {
+            background: var(--white);
+            border: 1px solid var(--accent-light-tan);
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        canvas {
+            border: 1px solid var(--accent-light-tan);
+            margin: 10px 0;
+            max-width: 100%;
+            background: var(--accent-cream);
+        }
     </style>
 </head>
 <body>
@@ -743,6 +976,38 @@
                 </div>
             </div>
 
+            <div class="exercise-container">
+                <div class="exercise-header">
+                    <h3>📐 Contoh Interaktif: Ubah Koordinat ke Bentuk Vektor</h3>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px;">Lihat bagaimana titik koordinat berubah menjadi bentuk vektor. Ubah nilai untuk lihat visualisasi berubah secara langsung.</p>
+                </div>
+
+                <div class="exercise-question">
+                    Diberi titik P(x, y) pada satah Cartes. Tulis vektor <strong>OP</strong> dalam bentuk xi + yj, kemudian kira magnitudnya.
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                    <div>
+                        <div class="input-group">
+                            <label class="input-label">Komponen x (i)</label>
+                            <input type="number" id="coordX" class="input-field" value="3" min="-10" max="10">
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Komponen y (j)</label>
+                            <input type="number" id="coordY" class="input-field" value="4" min="-10" max="10">
+                        </div>
+                        <button class="btn btn-primary" onclick="updateVectorVisualization()">Kemas Kini Gambar</button>
+                    </div>
+                    <div class="canvas-container">
+                        <canvas id="vectorCanvas" width="300" height="300"></canvas>
+                        <div style="margin-top: 15px; font-size: 13px; color: var(--text-muted);">
+                            <strong>Vektor:</strong> <span id="vectorForm">3i + 4j</span><br>
+                            <strong>Magnitud:</strong> <span id="vectorMagnitude">5 unit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <button class="cta-button" onclick="switchTab('concept3')">Seterusnya: Penambahan Vektor</button>
         </div>
 
@@ -832,86 +1097,196 @@
         <div class="tab-content" id="practice">
             <div class="content-header">
                 <h2>Latihan Interaktif 🎮</h2>
-                <p>Praktikal soalan dengan maklum balas serta-merta</p>
+                <p>Selesaikan soalan dengan langkah demi langkah, dapatkan maklum balas serta-merta dan lihat penyelesaian lengkap</p>
             </div>
 
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-icon">📝</div>
-                    <div class="card-title">Ungkapkan Vektor</div>
-                    <div class="card-description">
-                        Diberi koordinat, tulis vektor dalam bentuk xi + yj. Sahkan jawapan anda dengan gambar interaktif.
-                    </div>
-                    <div class="card-meta">
-                        <span>10 soalan</span>
-                        <span>Semua tahap</span>
-                    </div>
-                    <button class="cta-button" style="width: 100%; margin-top: 15px; justify-content: center;">Mulai →</button>
+            <div class="score-board">
+                <div class="score-item">
+                    <div class="score-number" id="totalAnswered">0</div>
+                    <div class="score-label">Soalan Dijawab</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-number" id="correctAnswers">0</div>
+                    <div class="score-label">Betul</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-number" id="percentageScore">0%</div>
+                    <div class="score-label">Ketepatan</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-number" id="totalXP">0</div>
+                    <div class="score-label">XP Diperoleh</div>
+                </div>
+            </div>
+
+            <!-- Exercise 1: Component Form -->
+            <div class="exercise-container">
+                <div class="exercise-header">
+                    <h3>📝 Soalan 1: Bentuk Komponen Vektor</h3>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px; difficulty-easy">Mudah - Asas</p>
                 </div>
 
-                <div class="card">
-                    <div class="card-icon">➕</div>
-                    <div class="card-title">Tambah Vektor</div>
-                    <div class="card-description">
-                        Selesaikan penambahan vektor langkah demi langkah. Dapatkan maklum balas untuk setiap komponen.
-                    </div>
-                    <div class="card-meta">
-                        <span>15 soalan</span>
-                        <span>Semua tahap</span>
-                    </div>
-                    <button class="cta-button" style="width: 100%; margin-top: 15px; justify-content: center;">Mulai →</button>
+                <div class="exercise-question" id="q1Problem">
+                    Diberi titik P(3, 4). Ungkapkan vektor OP dalam bentuk xi + yj, kemudian kira magnitudnya.
                 </div>
 
-                <div class="card">
-                    <div class="card-icon">🔄</div>
-                    <div class="card-title">Periksa Kesamaan</div>
-                    <div class="card-description">
-                        Tentukan sama ada dua vektor sama atau tidak. Bandingkan komponen dan tentukan hubungan mereka.
-                    </div>
-                    <div class="card-meta">
-                        <span>12 soalan</span>
-                        <span>Semua tahap</span>
-                    </div>
-                    <button class="cta-button" style="width: 100%; margin-top: 15px; justify-content: center;">Mulai →</button>
+                <div class="input-group">
+                    <label class="input-label">Jawapan Vektor (cth: 3i+4j atau 3i - 4j)</label>
+                    <input type="text" id="q1VectorInput" class="input-field" placeholder="Masukkan bentuk vektor...">
                 </div>
 
-                <div class="card">
-                    <div class="card-icon">🔢</div>
-                    <div class="card-title">Pendaraban Skalar</div>
-                    <div class="card-description">
-                        Kalikan vektor dengan skalar. Lihat bagaimana magnitud dan arah berubah.
-                    </div>
-                    <div class="card-meta">
-                        <span>10 soalan</span>
-                        <span>Semua tahap</span>
-                    </div>
-                    <button class="cta-button" style="width: 100%; margin-top: 15px; justify-content: center;">Mulai →</button>
+                <div class="input-group">
+                    <label class="input-label">Magnitud (jawapan berangka)</label>
+                    <input type="number" id="q1MagnitudeInput" class="input-field" placeholder="Masukkan magnitud...">
                 </div>
 
-                <div class="card">
-                    <div class="card-icon">🌍</div>
-                    <div class="card-title">Masalah Dunia Nyata</div>
-                    <div class="card-description">
-                        Gunakan vektor untuk menyelesaikan masalah tentang pesawat, bangunan, dan enjin.
-                    </div>
-                    <div class="card-meta">
-                        <span>8 soalan</span>
-                        <span>Mencabar</span>
-                    </div>
-                    <button class="cta-button" style="width: 100%; margin-top: 15px; justify-content: center;">Mulai →</button>
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="checkQuestion1()">Semak Jawapan</button>
+                    <button class="btn btn-secondary" onclick="showSolution1()">Tunjuk Penyelesaian</button>
+                    <button class="btn btn-secondary" onclick="generateNewQ1()">Soalan Baharu</button>
                 </div>
 
-                <div class="card">
-                    <div class="card-icon">🏆</div>
-                    <div class="card-title">Ujian Akhir</div>
-                    <div class="card-description">
-                        Soalan campuran dari semua topik. Capai 80% untuk lulus dan dapatkan sijil.
+                <div class="feedback-message" id="q1Feedback"></div>
+
+                <div class="solution-block" id="q1Solution">
+                    <div class="solution-title">✓ Penyelesaian Langkah Demi Langkah</div>
+                    <div class="solution-step">
+                        <strong>Langkah 1:</strong> Diberi titik P pada koordinat (3, 4)
                     </div>
-                    <div class="card-meta">
-                        <span>20 soalan</span>
-                        <span>Semua tahap</span>
+                    <div class="solution-step">
+                        <strong>Langkah 2:</strong> Vektor OP = xi + yj di mana x=3 dan y=4
                     </div>
-                    <button class="cta-button" style="width: 100%; margin-top: 15px; justify-content: center;">Mulai →</button>
+                    <div class="solution-step">
+                        <strong>Langkah 3:</strong> Oleh itu, OP = 3i + 4j
+                    </div>
+                    <div class="solution-step">
+                        <strong>Langkah 4:</strong> Magnitud = √(x² + y²) = √(3² + 4²) = √(9 + 16) = √25 = <strong>5</strong>
+                    </div>
+                    <div class="solution-step">
+                        <strong>Jawapan Akhir:</strong> Vektor = 3i + 4j, Magnitud = 5 unit
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 2: Vector Addition -->
+            <div class="exercise-container">
+                <div class="exercise-header">
+                    <h3>➕ Soalan 2: Penambahan Vektor</h3>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px;">Sederhana - Pertengahan</p>
+                </div>
+
+                <div class="exercise-question" id="q2Problem">
+                    Diberi A = 2i + 3j dan B = 4i - 1j. Kira A + B dan tentukan magnitudnya.
+                </div>
+
+                <div style="background: rgba(196, 165, 116, 0.05); padding: 15px; border-left: 3px solid var(--primary-gold); margin-bottom: 15px;">
+                    <strong>Tunjuk Kerja:</strong> Sila lengkapkan setiap langkah di bawah sebelum menjawab soalan akhir.
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Langkah 1: Tambah komponen i (2 + 4 = ?)</label>
+                    <input type="number" id="q2Step1" class="input-field" placeholder="Jawapan:">
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Langkah 2: Tambah komponen j (3 + (-1) = ?)</label>
+                    <input type="number" id="q2Step2" class="input-field" placeholder="Jawapan:">
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Langkah 3: Hasil (dalam bentuk xi+yj)</label>
+                    <input type="text" id="q2Answer" class="input-field" placeholder="Cth: 6i+2j">
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Langkah 4: Magnitud Hasil</label>
+                    <input type="number" step="0.01" id="q2Magnitude" class="input-field" placeholder="Jawapan:">
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="checkQuestion2()">Semak Jawapan</button>
+                    <button class="btn btn-secondary" onclick="showSolution2()">Tunjuk Penyelesaian</button>
+                    <button class="btn btn-secondary" onclick="generateNewQ2()">Soalan Baharu</button>
+                </div>
+
+                <div class="feedback-message" id="q2Feedback"></div>
+
+                <div class="solution-block" id="q2Solution">
+                    <div class="solution-title">✓ Penyelesaian Langkah Demi Langkah</div>
+                    <div class="solution-step">
+                        <strong>Diberi:</strong> A = 2i + 3j, B = 4i - 1j
+                    </div>
+                    <div class="solution-step">
+                        <strong>Langkah 1:</strong> Tambah komponen i: 2 + 4 = <strong>6</strong>
+                    </div>
+                    <div class="solution-step">
+                        <strong>Langkah 2:</strong> Tambah komponen j: 3 + (-1) = 3 - 1 = <strong>2</strong>
+                    </div>
+                    <div class="solution-step">
+                        <strong>Langkah 3:</strong> Oleh itu, A + B = <strong>6i + 2j</strong>
+                    </div>
+                    <div class="solution-step">
+                        <strong>Langkah 4:</strong> Magnitud = √(6² + 2²) = √(36 + 4) = √40 = <strong>6.32 unit</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 3: Scalar Multiplication -->
+            <div class="exercise-container">
+                <div class="exercise-header">
+                    <h3>🔢 Soalan 3: Pendaraban Skalar</h3>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px;">Sederhana - Pertengahan</p>
+                </div>
+
+                <div class="exercise-question" id="q3Problem">
+                    Diberi v = 2i - 3j. Kira 3v dan tentukan magnitudnya.
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Langkah 1: Darabkan komponen i (3 × 2 = ?)</label>
+                    <input type="number" id="q3Step1" class="input-field" placeholder="Jawapan:">
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Langkah 2: Darabkan komponen j (3 × (-3) = ?)</label>
+                    <input type="number" id="q3Step2" class="input-field" placeholder="Jawapan:">
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Langkah 3: Hasil Pendaraban</label>
+                    <input type="text" id="q3Answer" class="input-field" placeholder="Cth: 6i-9j">
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Langkah 4: Magnitud</label>
+                    <input type="number" step="0.01" id="q3Magnitude" class="input-field" placeholder="Jawapan:">
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="checkQuestion3()">Semak Jawapan</button>
+                    <button class="btn btn-secondary" onclick="showSolution3()">Tunjuk Penyelesaian</button>
+                    <button class="btn btn-secondary" onclick="generateNewQ3()">Soalan Baharu</button>
+                </div>
+
+                <div class="feedback-message" id="q3Feedback"></div>
+
+                <div class="solution-block" id="q3Solution">
+                    <div class="solution-title">✓ Penyelesaian Langkah Demi Langkah</div>
+                    <div class="solution-step">
+                        <strong>Diberi:</strong> v = 2i - 3j, Cari: 3v
+                    </div>
+                    <div class="solution-step">
+                        <strong>Langkah 1:</strong> Darabkan komponen i: 3 × 2 = <strong>6</strong>
+                    </div>
+                    <div class="solution-step">
+                        <strong>Langkah 2:</strong> Darabkan komponen j: 3 × (-3) = <strong>-9</strong>
+                    </div>
+                    <div class="solution-step">
+                        <strong>Langkah 3:</strong> Oleh itu, 3v = <strong>6i - 9j</strong>
+                    </div>
+                    <div class="solution-step">
+                        <strong>Langkah 4:</strong> Magnitud = √(6² + (-9)²) = √(36 + 81) = √117 = <strong>10.82 unit</strong>
+                    </div>
                 </div>
             </div>
 
@@ -923,8 +1298,8 @@
                 </div>
                 <div class="feature-box">
                     <div class="feature-box-icon">💡</div>
-                    <div class="feature-box-title">Petua Progresif</div>
-                    <div class="feature-box-text">4 tahap petua jika anda tersesat</div>
+                    <div class="feature-box-title">Langkah Demi Langkah</div>
+                    <div class="feature-box-text">Selesaikan satu langkah pada satu masa</div>
                 </div>
                 <div class="feature-box">
                     <div class="feature-box-icon">📊</div>
@@ -933,8 +1308,8 @@
                 </div>
                 <div class="feature-box">
                     <div class="feature-box-icon">🎮</div>
-                    <div class="feature-box-title">Gamifikasi</div>
-                    <div class="feature-box-text">Dapatkan XP, lencana, dan naik tahap</div>
+                    <div class="feature-box-title">Gamifikasi Skor</div>
+                    <div class="feature-box-text">Pantau kemajuan dan XP anda</div>
                 </div>
             </div>
         </div>
@@ -1038,38 +1413,407 @@
     </div>
 
     <script>
-        // Tab Switching Function
+        // ===== GLOBAL VARIABLES =====
+        let scoreData = {
+            total: 0,
+            correct: 0,
+            xp: 0
+        };
+
+        let currentProblems = {
+            q1: { x: 3, y: 4 },
+            q2: { a1: 2, a2: 3, b1: 4, b2: -1 },
+            q3: { k: 3, x: 2, y: -3 }
+        };
+
+        // ===== TAB SWITCHING =====
         function switchTab(tabName) {
-            // Hide all tab contents
             const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => {
-                content.classList.remove('active');
-            });
+            contents.forEach(content => content.classList.remove('active'));
 
-            // Remove active class from all buttons
             const buttons = document.querySelectorAll('.tab-button');
-            buttons.forEach(button => {
-                button.classList.remove('active');
-            });
+            buttons.forEach(button => button.classList.remove('active'));
 
-            // Show selected tab content
             const selectedContent = document.getElementById(tabName);
-            if (selectedContent) {
-                selectedContent.classList.add('active');
-            }
+            if (selectedContent) selectedContent.classList.add('active');
 
-            // Activate corresponding button
             buttons.forEach(button => {
                 if (button.getAttribute('data-tab') === tabName) {
                     button.classList.add('active');
                 }
             });
 
-            // Scroll to top
+            if (tabName === 'concept2') {
+                setTimeout(() => updateVectorVisualization(), 100);
+            }
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Add event listeners to tab buttons
+        // ===== INTERACTIVE VECTOR VISUALIZATION =====
+        function updateVectorVisualization() {
+            const x = parseFloat(document.getElementById('coordX').value) || 0;
+            const y = parseFloat(document.getElementById('coordY').value) || 0;
+
+            const canvas = document.getElementById('vectorCanvas');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const scale = 30;
+
+            // Clear canvas
+            ctx.fillStyle = '#f5f1ed';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw grid
+            ctx.strokeStyle = '#e8dcc8';
+            ctx.lineWidth = 1;
+            for (let i = -10; i <= 10; i++) {
+                ctx.beginPath();
+                ctx.moveTo(centerX + i * scale, 0);
+                ctx.lineTo(centerX + i * scale, canvas.height);
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.moveTo(0, centerY - i * scale);
+                ctx.lineTo(canvas.width, centerY - i * scale);
+                ctx.stroke();
+            }
+
+            // Draw axes
+            ctx.strokeStyle = '#5a4a42';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(0, centerY);
+            ctx.lineTo(canvas.width, centerY);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(centerX, 0);
+            ctx.lineTo(centerX, canvas.height);
+            ctx.stroke();
+
+            // Draw axis labels
+            ctx.fillStyle = '#5a4a42';
+            ctx.font = '12px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('x', canvas.width - 15, centerY - 10);
+            ctx.textAlign = 'right';
+            ctx.fillText('y', centerX - 10, 15);
+
+            // Draw vector
+            const vectorX = centerX + x * scale;
+            const vectorY = centerY - y * scale;
+
+            // Vector components (colored lines)
+            ctx.strokeStyle = '#4a90e2';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.lineTo(vectorX, centerY);
+            ctx.stroke();
+
+            ctx.strokeStyle = '#e74c3c';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(vectorX, centerY);
+            ctx.lineTo(vectorX, vectorY);
+            ctx.stroke();
+
+            // Main vector (green)
+            ctx.strokeStyle = '#27ae60';
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.lineTo(vectorX, vectorY);
+            ctx.stroke();
+
+            // Arrow head
+            const angle = Math.atan2(vectorY - centerY, vectorX - centerX);
+            const headlen = 15;
+            ctx.fillStyle = '#27ae60';
+            ctx.beginPath();
+            ctx.moveTo(vectorX, vectorY);
+            ctx.lineTo(vectorX - headlen * Math.cos(angle - Math.PI / 6), vectorY - headlen * Math.sin(angle - Math.PI / 6));
+            ctx.lineTo(vectorX - headlen * Math.cos(angle + Math.PI / 6), vectorY - headlen * Math.sin(angle + Math.PI / 6));
+            ctx.fill();
+
+            // Point label
+            ctx.fillStyle = '#5a4a42';
+            ctx.font = 'bold 14px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText(`(${x}, ${y})`, vectorX + 20, vectorY - 15);
+
+            // Update text
+            document.getElementById('vectorForm').textContent = `${x}i + ${y}j`;
+            const magnitude = Math.sqrt(x * x + y * y).toFixed(2);
+            document.getElementById('vectorMagnitude').textContent = `${magnitude} unit`;
+        }
+
+        // ===== SCORE TRACKING =====
+        function updateScore() {
+            const percent = scoreData.total > 0 ? Math.round((scoreData.correct / scoreData.total) * 100) : 0;
+            document.getElementById('totalAnswered').textContent = scoreData.total;
+            document.getElementById('correctAnswers').textContent = scoreData.correct;
+            document.getElementById('percentageScore').textContent = percent + '%';
+            document.getElementById('totalXP').textContent = scoreData.xp;
+        }
+
+        function addScore(correct, xpGain = 10) {
+            scoreData.total++;
+            if (correct) {
+                scoreData.correct++;
+                scoreData.xp += xpGain;
+            }
+            updateScore();
+        }
+
+        // ===== QUESTION 1: COMPONENT FORM =====
+        function generateNewQ1() {
+            currentProblems.q1.x = Math.floor(Math.random() * 15) - 7;
+            currentProblems.q1.y = Math.floor(Math.random() * 15) - 7;
+
+            const x = currentProblems.q1.x;
+            const y = currentProblems.q1.y;
+            const ySign = y >= 0 ? '+' : '';
+
+            document.getElementById('q1Problem').innerHTML = `Diberi titik P(${x}, ${y}). Ungkapkan vektor OP dalam bentuk xi + yj, kemudian kira magnitudnya.`;
+            document.getElementById('q1VectorInput').value = '';
+            document.getElementById('q1MagnitudeInput').value = '';
+            document.getElementById('q1Feedback').classList.remove('show');
+            document.getElementById('q1Solution').classList.remove('show');
+
+            // Clear input styles
+            document.getElementById('q1VectorInput').classList.remove('correct', 'incorrect');
+            document.getElementById('q1MagnitudeInput').classList.remove('correct', 'incorrect');
+        }
+
+        function checkQuestion1() {
+            const x = currentProblems.q1.x;
+            const y = currentProblems.q1.y;
+            const magnitude = Math.sqrt(x * x + y * y).toFixed(2);
+
+            const vectorInput = document.getElementById('q1VectorInput').value.replace(/\s+/g, '').toLowerCase();
+            const magnitudeInput = parseFloat(document.getElementById('q1MagnitudeInput').value);
+
+            const expectedVector = `${x}i${y >= 0 ? '+' : ''}${y}j`.replace('+-', '-');
+            const vectorCorrect = vectorInput === expectedVector;
+            const magnitudeCorrect = Math.abs(magnitudeInput - parseFloat(magnitude)) < 0.1;
+
+            const feedback = document.getElementById('q1Feedback');
+            if (vectorCorrect && magnitudeCorrect) {
+                feedback.innerHTML = '✓ Betul! Kedua-dua jawapan tepat. Cemerlang!';
+                feedback.className = 'feedback-message show feedback-correct';
+                document.getElementById('q1VectorInput').classList.add('correct');
+                document.getElementById('q1MagnitudeInput').classList.add('correct');
+                addScore(true, 15);
+            } else {
+                feedback.innerHTML = '✗ Belum tepat. Sila periksa kerja anda. Tekan "Tunjuk Penyelesaian" untuk bantuan.';
+                feedback.className = 'feedback-message show feedback-incorrect';
+                if (!vectorCorrect) document.getElementById('q1VectorInput').classList.add('incorrect');
+                if (!magnitudeCorrect) document.getElementById('q1MagnitudeInput').classList.add('incorrect');
+                addScore(false, 0);
+            }
+        }
+
+        function showSolution1() {
+            document.getElementById('q1Solution').classList.add('show');
+        }
+
+        // ===== QUESTION 2: VECTOR ADDITION =====
+        function generateNewQ2() {
+            currentProblems.q2.a1 = Math.floor(Math.random() * 10) - 5;
+            currentProblems.q2.a2 = Math.floor(Math.random() * 10) - 5;
+            currentProblems.q2.b1 = Math.floor(Math.random() * 10) - 5;
+            currentProblems.q2.b2 = Math.floor(Math.random() * 10) - 5;
+
+            const a1 = currentProblems.q2.a1;
+            const a2 = currentProblems.q2.a2;
+            const b1 = currentProblems.q2.b1;
+            const b2 = currentProblems.q2.b2;
+
+            const a2Str = a2 >= 0 ? `+${a2}` : `${a2}`;
+            const b2Str = b2 >= 0 ? `+${b2}` : `${b2}`;
+
+            document.getElementById('q2Problem').innerHTML = `Diberi A = ${a1}i ${a2Str}j dan B = ${b1}i ${b2Str}j. Kira A + B dan tentukan magnitudnya.`;
+            document.getElementById('q2Step1').value = '';
+            document.getElementById('q2Step2').value = '';
+            document.getElementById('q2Answer').value = '';
+            document.getElementById('q2Magnitude').value = '';
+            document.getElementById('q2Feedback').classList.remove('show');
+            document.getElementById('q2Solution').classList.remove('show');
+
+            // Clear input styles
+            ['q2Step1', 'q2Step2', 'q2Answer', 'q2Magnitude'].forEach(id => {
+                document.getElementById(id).classList.remove('correct', 'incorrect');
+            });
+        }
+
+        function checkQuestion2() {
+            const a1 = currentProblems.q2.a1;
+            const a2 = currentProblems.q2.a2;
+            const b1 = currentProblems.q2.b1;
+            const b2 = currentProblems.q2.b2;
+
+            const step1 = parseInt(document.getElementById('q2Step1').value);
+            const step2 = parseInt(document.getElementById('q2Step2').value);
+            const answer = document.getElementById('q2Answer').value.replace(/\s+/g, '').toLowerCase();
+            const magnitude = parseFloat(document.getElementById('q2Magnitude').value);
+
+            const correctStep1 = a1 + b1;
+            const correctStep2 = a2 + b2;
+            const correctAnswer = `${correctStep1}i${correctStep2 >= 0 ? '+' : ''}${correctStep2}j`.replace('+-', '-');
+            const correctMagnitude = Math.sqrt(correctStep1 * correctStep1 + correctStep2 * correctStep2).toFixed(2);
+
+            const s1OK = step1 === correctStep1;
+            const s2OK = step2 === correctStep2;
+            const answerOK = answer === correctAnswer;
+            const magOK = Math.abs(magnitude - parseFloat(correctMagnitude)) < 0.2;
+
+            const allCorrect = s1OK && s2OK && answerOK && magOK;
+
+            document.getElementById('q2Step1').classList.toggle('correct', s1OK);
+            document.getElementById('q2Step1').classList.toggle('incorrect', !s1OK);
+            document.getElementById('q2Step2').classList.toggle('correct', s2OK);
+            document.getElementById('q2Step2').classList.toggle('incorrect', !s2OK);
+            document.getElementById('q2Answer').classList.toggle('correct', answerOK);
+            document.getElementById('q2Answer').classList.toggle('incorrect', !answerOK);
+            document.getElementById('q2Magnitude').classList.toggle('correct', magOK);
+            document.getElementById('q2Magnitude').classList.toggle('incorrect', !magOK);
+
+            const feedback = document.getElementById('q2Feedback');
+            if (allCorrect) {
+                feedback.innerHTML = '✓ Sempurna! Semua langkah betul. Anda memahami penambahan vektor dengan baik!';
+                feedback.className = 'feedback-message show feedback-correct';
+                addScore(true, 20);
+            } else {
+                const mistakes = [];
+                if (!s1OK) mistakes.push('Langkah 1 (penambahan i)');
+                if (!s2OK) mistakes.push('Langkah 2 (penambahan j)');
+                if (!answerOK) mistakes.push('Bentuk vektor akhir');
+                if (!magOK) mistakes.push('Magnitud');
+                feedback.innerHTML = `✗ Sila semak: ${mistakes.join(', ')}. Tekan "Tunjuk Penyelesaian" untuk bantuan.`;
+                feedback.className = 'feedback-message show feedback-incorrect';
+                addScore(false, 0);
+            }
+        }
+
+        function showSolution2() {
+            const a1 = currentProblems.q2.a1;
+            const a2 = currentProblems.q2.a2;
+            const b1 = currentProblems.q2.b1;
+            const b2 = currentProblems.q2.b2;
+            const step1 = a1 + b1;
+            const step2 = a2 + b2;
+            const mag = Math.sqrt(step1 * step1 + step2 * step2).toFixed(2);
+            const a2Str = a2 >= 0 ? `+${a2}` : `${a2}`;
+            const b2Str = b2 >= 0 ? `+${b2}` : `${b2}`;
+
+            document.getElementById('q2Solution').innerHTML = `
+                <div class="solution-title">✓ Penyelesaian Langkah Demi Langkah</div>
+                <div class="solution-step"><strong>Diberi:</strong> A = ${a1}i ${a2Str}j, B = ${b1}i ${b2Str}j</div>
+                <div class="solution-step"><strong>Langkah 1:</strong> Tambah komponen i: ${a1} + ${b1} = <strong>${step1}</strong></div>
+                <div class="solution-step"><strong>Langkah 2:</strong> Tambah komponen j: ${a2} + ${b2} = <strong>${step2}</strong></div>
+                <div class="solution-step"><strong>Langkah 3:</strong> Oleh itu, A + B = <strong>${step1}i${step2 >= 0 ? '+' : ''}${step2}j</strong></div>
+                <div class="solution-step"><strong>Langkah 4:</strong> Magnitud = √(${step1}² + ${step2}²) = √(${step1 * step1} + ${step2 * step2}) = √${step1 * step1 + step2 * step2} = <strong>${mag} unit</strong></div>
+            `;
+            document.getElementById('q2Solution').classList.add('show');
+        }
+
+        // ===== QUESTION 3: SCALAR MULTIPLICATION =====
+        function generateNewQ3() {
+            currentProblems.q3.k = Math.floor(Math.random() * 5) + 1;
+            currentProblems.q3.x = Math.floor(Math.random() * 10) - 5;
+            currentProblems.q3.y = Math.floor(Math.random() * 10) - 5;
+
+            const k = currentProblems.q3.k;
+            const x = currentProblems.q3.x;
+            const y = currentProblems.q3.y;
+            const yStr = y >= 0 ? `+${y}` : `${y}`;
+
+            document.getElementById('q3Problem').innerHTML = `Diberi v = ${x}i ${yStr}j. Kira ${k}v dan tentukan magnitudnya.`;
+            document.getElementById('q3Step1').value = '';
+            document.getElementById('q3Step2').value = '';
+            document.getElementById('q3Answer').value = '';
+            document.getElementById('q3Magnitude').value = '';
+            document.getElementById('q3Feedback').classList.remove('show');
+            document.getElementById('q3Solution').classList.remove('show');
+
+            ['q3Step1', 'q3Step2', 'q3Answer', 'q3Magnitude'].forEach(id => {
+                document.getElementById(id).classList.remove('correct', 'incorrect');
+            });
+        }
+
+        function checkQuestion3() {
+            const k = currentProblems.q3.k;
+            const x = currentProblems.q3.x;
+            const y = currentProblems.q3.y;
+
+            const step1 = parseInt(document.getElementById('q3Step1').value);
+            const step2 = parseInt(document.getElementById('q3Step2').value);
+            const answer = document.getElementById('q3Answer').value.replace(/\s+/g, '').toLowerCase();
+            const magnitude = parseFloat(document.getElementById('q3Magnitude').value);
+
+            const correctStep1 = k * x;
+            const correctStep2 = k * y;
+            const correctAnswer = `${correctStep1}i${correctStep2 >= 0 ? '+' : ''}${correctStep2}j`.replace('+-', '-');
+            const correctMagnitude = Math.sqrt(correctStep1 * correctStep1 + correctStep2 * correctStep2).toFixed(2);
+
+            const s1OK = step1 === correctStep1;
+            const s2OK = step2 === correctStep2;
+            const answerOK = answer === correctAnswer;
+            const magOK = Math.abs(magnitude - parseFloat(correctMagnitude)) < 0.2;
+
+            const allCorrect = s1OK && s2OK && answerOK && magOK;
+
+            document.getElementById('q3Step1').classList.toggle('correct', s1OK);
+            document.getElementById('q3Step1').classList.toggle('incorrect', !s1OK);
+            document.getElementById('q3Step2').classList.toggle('correct', s2OK);
+            document.getElementById('q3Step2').classList.toggle('incorrect', !s2OK);
+            document.getElementById('q3Answer').classList.toggle('correct', answerOK);
+            document.getElementById('q3Answer').classList.toggle('incorrect', !answerOK);
+            document.getElementById('q3Magnitude').classList.toggle('correct', magOK);
+            document.getElementById('q3Magnitude').classList.toggle('incorrect', !magOK);
+
+            const feedback = document.getElementById('q3Feedback');
+            if (allCorrect) {
+                feedback.innerHTML = '✓ Luar biasa! Anda telah menguasai pendaraban skalar dengan sempurna!';
+                feedback.className = 'feedback-message show feedback-correct';
+                addScore(true, 20);
+            } else {
+                const mistakes = [];
+                if (!s1OK) mistakes.push('Langkah 1 (pendaraban i)');
+                if (!s2OK) mistakes.push('Langkah 2 (pendaraban j)');
+                if (!answerOK) mistakes.push('Bentuk vektor akhir');
+                if (!magOK) mistakes.push('Magnitud');
+                feedback.innerHTML = `✗ Sila semak: ${mistakes.join(', ')}. Tekan "Tunjuk Penyelesaian" untuk bantuan.`;
+                feedback.className = 'feedback-message show feedback-incorrect';
+                addScore(false, 0);
+            }
+        }
+
+        function showSolution3() {
+            const k = currentProblems.q3.k;
+            const x = currentProblems.q3.x;
+            const y = currentProblems.q3.y;
+            const step1 = k * x;
+            const step2 = k * y;
+            const mag = Math.sqrt(step1 * step1 + step2 * step2).toFixed(2);
+            const yStr = y >= 0 ? `+${y}` : `${y}`;
+
+            document.getElementById('q3Solution').innerHTML = `
+                <div class="solution-title">✓ Penyelesaian Langkah Demi Langkah</div>
+                <div class="solution-step"><strong>Diberi:</strong> v = ${x}i ${yStr}j, Cari: ${k}v</div>
+                <div class="solution-step"><strong>Langkah 1:</strong> Darabkan komponen i: ${k} × ${x} = <strong>${step1}</strong></div>
+                <div class="solution-step"><strong>Langkah 2:</strong> Darabkan komponen j: ${k} × ${y} = <strong>${step2}</strong></div>
+                <div class="solution-step"><strong>Langkah 3:</strong> Oleh itu, ${k}v = <strong>${step1}i${step2 >= 0 ? '+' : ''}${step2}j</strong></div>
+                <div class="solution-step"><strong>Langkah 4:</strong> Magnitud = √(${step1}² + ${step2}²) = √(${step1 * step1} + ${step2 * step2}) = √${step1 * step1 + step2 * step2} = <strong>${mag} unit</strong></div>
+            `;
+            document.getElementById('q3Solution').classList.add('show');
+        }
+
+        // ===== INITIALIZATION =====
         document.addEventListener('DOMContentLoaded', function() {
             const tabButtons = document.querySelectorAll('.tab-button');
             tabButtons.forEach(button => {
@@ -1078,6 +1822,11 @@
                     switchTab(tabName);
                 });
             });
+
+            updateScore();
+            generateNewQ1();
+            generateNewQ2();
+            generateNewQ3();
         });
     </script>
 </body>
